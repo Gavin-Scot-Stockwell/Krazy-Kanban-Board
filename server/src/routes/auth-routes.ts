@@ -3,6 +3,7 @@ import { User } from '../models/user.js';
 import jwt from 'jsonwebtoken';
 import bcrypt from 'bcrypt';
 
+
 export const login = async (req: Request, res: Response) => {
   // TODO: If the user exists and the password is correct, return a JWT token
 
@@ -14,13 +15,13 @@ export const login = async (req: Request, res: Response) => {
 
 
   if(!user) {
-    return res.sendStatus(401).json({ message: 'Authentication failed' });
+    return res.status(401).json({ message: 'Authentication failed' });
   }
 
   const passwordIsValid = await bcrypt.compare(password, user.password);
 
   if(!passwordIsValid) {
-    return res.sendStatus(401).json({ message: 'Authentication failed' });
+    return res.status(401).json({ message: 'Authentication failed' });
   }
 
   const secretKey = process.env.JWT_SECRET_KEY || "";

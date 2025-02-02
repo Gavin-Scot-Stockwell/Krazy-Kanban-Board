@@ -9,11 +9,11 @@ export const login = async (req, res) => {
         where: { username }
     });
     if (!user) {
-        return res.sendStatus(401).json({ message: 'Authentication failed' });
+        return res.status(401).json({ message: 'Authentication failed' });
     }
     const passwordIsValid = await bcrypt.compare(password, user.password);
     if (!passwordIsValid) {
-        return res.sendStatus(401).json({ message: 'Authentication failed' });
+        return res.status(401).json({ message: 'Authentication failed' });
     }
     const secretKey = process.env.JWT_SECRET_KEY || "";
     const token = jwt.sign({ username }, secretKey, { expiresIn: '1h' });
