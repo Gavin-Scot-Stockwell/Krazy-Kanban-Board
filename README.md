@@ -31,7 +31,8 @@ A way to test login
 
 
 ## Tests
-* Open file “index.ts” in vscode
+* Go to the website and follow how to login
+* Use JollyGuru, SunnyScribe, and RadiantComet for the user and for the password for password
 
 * [video how to work app](https://youtu.be/Pe-IvjWZHL8)
 
